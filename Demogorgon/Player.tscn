@@ -1,16 +1,22 @@
 [gd_scene load_steps=4 format=3 uid="uid://d1r57le3dlb4w"]
 
-[ext_resource type="Texture2D" uid="uid://dbqa7g7ihq5yl" path="res://icon.svg" id="1_e2gxs"]
 [ext_resource type="Script" path="res://Player.gd" id="1_vdg6k"]
+[ext_resource type="Texture2D" uid="uid://b0lfv0l05odry" path="res://Biker_idle.png" id="2_vd5u7"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_blihc"]
-size = Vector2(128, 126)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h3b15"]
+radius = 26.0
+height = 128.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_vdg6k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_blihc")
+shape = SubResource("CapsuleShape2D_h3b15")
 
-[node name="Icon" type="Sprite2D" parent="."]
-texture = ExtResource("1_e2gxs")
+[node name="BikerIdle" type="Sprite2D" parent="."]
+position = Vector2(1.99998, -9)
+scale = Vector2(2.88, 2.88)
+texture = ExtResource("2_vd5u7")
+offset = Vector2(0.021, 0)
+region_enabled = true
+region_rect = Rect2(0, 0, 30, 50.5)
