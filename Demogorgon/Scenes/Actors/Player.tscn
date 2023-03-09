@@ -1,0 +1,144 @@
+[gd_scene load_steps=21 format=3 uid="uid://dpiamhx857mv7"]
+
+[ext_resource type="Script" path="res://Scenes/Actors/Player.gd" id="1_vdg6k"]
+[ext_resource type="Texture2D" uid="uid://npskl60p7vwf" path="res://assets/craftpix-net-166353-free-3-cyberpunk-characters-pixel-art/1 Biker/Biker_idle.png" id="2_0o0jh"]
+[ext_resource type="Texture2D" uid="uid://dbut1d0q8j6sy" path="res://assets/craftpix-net-166353-free-3-cyberpunk-characters-pixel-art/1 Biker/Biker_jump.png" id="3_hmrk7"]
+[ext_resource type="Texture2D" uid="uid://bgyixxn6bc1o3" path="res://assets/craftpix-net-166353-free-3-cyberpunk-characters-pixel-art/1 Biker/Biker_run.png" id="4_hj416"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h3b15"]
+radius = 8.0
+height = 38.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3kfmg"]
+atlas = ExtResource("2_0o0jh")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rmrs7"]
+atlas = ExtResource("2_0o0jh")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7gjns"]
+atlas = ExtResource("2_0o0jh")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dgs5l"]
+atlas = ExtResource("2_0o0jh")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bndj0"]
+atlas = ExtResource("3_hmrk7")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_swt5s"]
+atlas = ExtResource("3_hmrk7")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6xg17"]
+atlas = ExtResource("3_hmrk7")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hf7oe"]
+atlas = ExtResource("3_hmrk7")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ogad"]
+atlas = ExtResource("4_hj416")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h468m"]
+atlas = ExtResource("4_hj416")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y7o7y"]
+atlas = ExtResource("4_hj416")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwl2k"]
+atlas = ExtResource("4_hj416")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6tljx"]
+atlas = ExtResource("4_hj416")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g031r"]
+atlas = ExtResource("4_hj416")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1a5n4"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3kfmg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rmrs7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7gjns")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dgs5l")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bndj0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_swt5s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6xg17")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hf7oe")
+}],
+"loop": false,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ogad")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h468m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y7o7y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gwl2k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6tljx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g031r")
+}],
+"loop": true,
+"name": &"run",
+"speed": 8.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_vdg6k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5)
+shape = SubResource("CapsuleShape2D_h3b15")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_1a5n4")
+animation = &"idle"
+offset = Vector2(10, 0)
