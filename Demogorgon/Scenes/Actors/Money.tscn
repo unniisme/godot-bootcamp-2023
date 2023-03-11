@@ -1,0 +1,69 @@
+[gd_scene load_steps=11 format=3 uid="uid://cojwnge8c1car"]
+
+[ext_resource type="Texture2D" uid="uid://cqmf04wi03noh" path="res://assets/craftpix-net-965049-free-industrial-zone-tileset-pixel-art/4 Animated objects/Money.png" id="1_ardnd"]
+[ext_resource type="Script" path="res://Scenes/Actors/Money.gd" id="1_knfge"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8c4od"]
+atlas = ExtResource("1_ardnd")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gynaq"]
+atlas = ExtResource("1_ardnd")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y88h2"]
+atlas = ExtResource("1_ardnd")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6uy1i"]
+atlas = ExtResource("1_ardnd")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_65sc8"]
+atlas = ExtResource("1_ardnd")
+region = Rect2(96, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uhu42"]
+atlas = ExtResource("1_ardnd")
+region = Rect2(120, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ccsei"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8c4od")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gynaq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y88h2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6uy1i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_65sc8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uhu42")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6rhef"]
+
+[node name="Money" type="Area2D"]
+script = ExtResource("1_knfge")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_ccsei")
+frame_progress = 0.393151
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_6rhef")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

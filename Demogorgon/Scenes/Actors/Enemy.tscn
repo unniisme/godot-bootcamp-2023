@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://fl0nn60v08q1"]
+
+[ext_resource type="Texture2D" uid="uid://db34ob162jbc2" path="res://assets/craftpix-net-902201-free-drones-pack-pixel-art/1 Drones/1/Idle.png" id="1_oy267"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yxj73"]
+atlas = ExtResource("1_oy267")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vei5h"]
+atlas = ExtResource("1_oy267")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jdcgr"]
+atlas = ExtResource("1_oy267")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5flqc"]
+atlas = ExtResource("1_oy267")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xm7tc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yxj73")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vei5h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jdcgr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5flqc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7qyaq"]
+
+[node name="Enemy" type="Area2D"]
+texture_filter = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_xm7tc")
+frame = 1
+frame_progress = 0.379268
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_7qyaq")

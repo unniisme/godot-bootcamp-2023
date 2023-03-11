@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3q4jrhtcwu0t"]
+
+[ext_resource type="Texture2D" uid="uid://djjlsrbp74wyq" path="res://assets/craftpix-net-965049-free-industrial-zone-tileset-pixel-art/3 Objects/Barrel4.png" id="1_hhg6a"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wvf65"]
+
+[node name="Area2D" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(7.45058e-09, 8)
+rotation = 1.59065
+scale = Vector2(0.481859, 0.721801)
+shape = SubResource("CapsuleShape2D_wvf65")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_hhg6a")
