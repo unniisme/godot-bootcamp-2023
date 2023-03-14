@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgijkm2y4eqm1"]
+
+[ext_resource type="PackedScene" uid="uid://b2rjao8db4wrp" path="res://Scenes/play_button.tscn" id="1_sg3l5"]
+[ext_resource type="Script" path="res://Scenes/quit_button.gd" id="2_ebvjf"]
+[ext_resource type="Texture2D" uid="uid://ksm8w3bjonnl" path="res://assets/Screenshot from 2023-03-13 21-18-24.png" id="3_4larx"]
+
+[node name="Intro_GUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScreenshotFrom2023-03-1321-18-24" type="Sprite2D" parent="."]
+position = Vector2(576, 298)
+texture = ExtResource("3_4larx")
+
+[node name="Play_Button" parent="." instance=ExtResource("1_sg3l5")]
+layout_mode = 0
+
+[node name="Quit_Button" parent="." instance=ExtResource("1_sg3l5")]
+layout_mode = 0
+offset_left = 956.0
+offset_right = 1153.0
+text = "QUIT"
+script = ExtResource("2_ebvjf")
+
+[connection signal="pressed" from="Quit_Button" to="Quit_Button" method="kill"]

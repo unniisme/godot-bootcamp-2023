@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://bb4076c4gsg5n"]
+
+[ext_resource type="PackedScene" uid="uid://cvnsdlyq6e4cr" path="res://Scenes/Actors/level_manager.tscn" id="1_lhed0"]
+[ext_resource type="TileSet" uid="uid://cey8s7ssu7vuk" path="res://Tilemaps/Test Level.tres" id="2_eou2o"]
+[ext_resource type="PackedScene" uid="uid://dpiamhx857mv7" path="res://Scenes/Actors/Player.tscn" id="3_olp67"]
+[ext_resource type="PackedScene" uid="uid://cpep1xnjhh1fc" path="res://Scenes/camera.tscn" id="4_sd71r"]
+[ext_resource type="PackedScene" uid="uid://nbe3klprjljw" path="res://Scenes/Actors/kiler_area.tscn" id="5_wrr42"]
+
+[node name="Level 1" type="Node2D"]
+
+[node name="level_manager" parent="." instance=ExtResource("1_lhed0")]
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Background" type="TileMap" parent="Background"]
+texture_filter = 1
+tile_set = ExtResource("2_eou2o")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 0, 6, -65535, 0, 6, -131070, 0, 6, -131069, 524288, 4, -131068, 589824, 4, -196604, 65536, 5, -262140, 65536, 5, -327676, 65536, 5, -393212, 65536, 5, -65536, 393216, 1, -131072, 196608, 0, -196608, 196608, 0, -131071, 0, 6, -196607, 196608, 0, -262143, 196608, 0, -262144, 196608, 0, -327680, 196608, 0, -393216, 196608, 0, -393215, 196608, 0, -393214, 196608, 0, -393213, 196608, 0, -327677, 196608, 0, -262141, 196608, 0, -262142, 196608, 0, -327679, 196608, 0, -327678, 196608, 0, -196606, 196608, 0, -196605, 196608, 0, 458752, 196608, 0, 327681, 196608, 0, 262146, 0, 6, 65536, 0, 6, 131072, 0, 6, 131073, 0, 6, 65537, 589824, 7, 1, 0, 6, -65534, 524288, 6, 2, 720896, 6, 131074, 327680, 6, 131075, 131072, 7, 262143, 327680, 2, 262142, 327680, 2, 196606, 327680, 2, 131070, 327680, 2, 65534, 327680, 2, 65535, 327680, 2)
+
+[node name="TileMap2" type="TileMap" parent="."]
+texture_filter = 1
+tile_set = ExtResource("2_eou2o")
+format = 2
+layer_0/tile_data = PackedInt32Array(196608, 65536, 0, 196609, 65536, 0, 196610, 65536, 0, 196611, 65536, 0, 196612, 131072, 0, 262148, 196608, 1, 327684, 65536, 5, 393220, 65536, 5, 458756, 589824, 4, 0, 589824, 4, -65535, 589824, 4, -131070, 524288, 4, -131069, 524288, 4, -131068, 589824, 4, -196604, 65536, 5, -262140, 65536, 5, -327676, 65536, 5, -393212, 65536, 5, -65536, 393216, 1, -131072, 196608, 0, -196608, 196608, 0, -131071, 393216, 1, -196607, 196608, 0, -262143, 196608, 0, -262144, 196608, 0, -327680, 196608, 0, -393216, 196608, 0, -393215, 196608, 0, -393214, 196608, 0, -393213, 196608, 0, -327677, 196608, 0, -262141, 196608, 0, -262142, 196608, 0, -327679, 196608, 0, -327678, 196608, 0, -196606, 196608, 0, -196605, 196608, 0, 262144, 720896, 1, 327680, 131072, 1, 393216, 196608, 0, 458752, 196608, 3, 524288, 196608, 0, 589824, 65536, 2, 262145, 720896, 1, 327681, 65536, 1, 393217, 196608, 0, 458753, 131072, 3, 524289, 196608, 0, 589825, 65536, 2, 262146, 131072, 1, 327682, 196608, 0, 393218, 196608, 0, 458754, 0, 3, 524290, 196608, 0, 589826, 65536, 2, 262147, 131072, 1, 327683, 196608, 0, 393219, 196608, 0, 458755, 196608, 0, 524291, 65536, 5, 589827, 589824, 4)
+
+[node name="Player" parent="." instance=ExtResource("3_olp67")]
+position = Vector2(14, 71)
+
+[node name="Camera2D" parent="Player" instance=ExtResource("4_sd71r")]
+
+[node name="killer_node" parent="." instance=ExtResource("5_wrr42")]
+position = Vector2(-830, 336)
+scale = Vector2(5.93434, -1.66736)
+
+[connection signal="body_entered" from="killer_node" to="level_manager" method="_on_kiler_area_body_entered"]
